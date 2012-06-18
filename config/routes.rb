@@ -1,4 +1,7 @@
 CheaterRecord::Application.routes.draw do
+
+  root :to => 'smedia#index'
+
   resources :providers
 
   resources :cheaters
