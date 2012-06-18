@@ -1,0 +1,33 @@
+<%= form_for(@cheater) do |f| %>
+  <% if @cheater.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cheater.errors.count, "error") %> prohibited this cheater from being saved:</h2>
+
+      <ul>
+      <% @cheater.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :vote_up %><br />
+    <%= f.number_field :vote_up %>
+  </div>
+  <div class="field">
+    <%= f.label :vote_down %><br />
+    <%= f.number_field :vote_down %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

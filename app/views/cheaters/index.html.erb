@@ -1,0 +1,29 @@
+<h1>Listing cheaters</h1>
+
+<table>
+  <tr>
+    <th>Mobile</th>
+    <th>Desc</th>
+    <th>Vote up</th>
+    <th>Vote down</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cheaters.each do |cheater| %>
+  <tr>
+    <td><%= cheater.mobile %></td>
+    <td><%= cheater.desc %></td>
+    <td><%= cheater.vote_up %></td>
+    <td><%= cheater.vote_down %></td>
+    <td><%= link_to 'Show', cheater %></td>
+    <td><%= link_to 'Edit', edit_cheater_path(cheater) %></td>
+    <td><%= link_to 'Destroy', cheater, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cheater', new_cheater_path %>

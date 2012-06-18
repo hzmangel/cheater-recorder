@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @cheater.mobile %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @cheater.desc %>
+</p>
+
+<p>
+  <b>Vote up:</b>
+  <%= @cheater.vote_up %>
+</p>
+
+<p>
+  <b>Vote down:</b>
+  <%= @cheater.vote_down %>
+</p>
+
+
+<%= link_to 'Edit', edit_cheater_path(@cheater) %> |
+<%= link_to 'Back', cheaters_path %>
