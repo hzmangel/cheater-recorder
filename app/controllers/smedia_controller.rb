@@ -1,0 +1,2 @@
+class SmediaController < ApplicationController
+end
