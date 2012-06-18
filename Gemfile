@@ -35,3 +35,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem 'mongo'
+gem 'bson_ext'
+gem "mongoid", "~> 3.0.0.rc"
+
