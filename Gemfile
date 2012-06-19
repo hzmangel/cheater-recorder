@@ -40,3 +40,5 @@ gem 'mongo'
 gem 'bson_ext'
 gem "mongoid", "~> 3.0.0.rc"
 
+gem "twitter-bootstrap-rails"
+
