@@ -1,1 +1,27 @@
+<%= form_tag '/cheaters/create', :method => 'POST' do %>
+  <fieldset>
+
+    <div class="control-group">
+      <%= label_tag("cheater_mobile", 'Mobile:') %>
+      <div class="controls">
+        <%= phone_field_tag("cheater_mobile", nil, :placeholder => 'mobile phone') %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= label_tag("cheater_desc", 'Desc:') %>
+      <div class="controls">
+        <%= text_area_tag("cheater_desc", nil, :placeholder => 'Description') %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= label_tag("provider_email", 'E-mail:') %>
+      <div class="controls">
+        <%= email_field_tag("provider_email", nil, :placeholder => 'Your email') %>
+      </div>
+    </div>
+
+  </fieldset>
+<% end %>
 <div id="cheater_list"></div>

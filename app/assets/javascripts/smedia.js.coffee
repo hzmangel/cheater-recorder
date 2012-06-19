@@ -11,7 +11,14 @@ update_cheater_list = () ->
   jQuery ($) ->
     $.getJSON(cheaters_url,
       (data) ->
-        rslt = ("<div id=\"cheater_#{ cheater._id }\"><div class=\"cheater_mobile\">#{ cheater.mobile }</div><div class=\"cheater_desc\">#{ cheater.desc }</div></div>" for cheater in data).join '<hr/>'
+        rslt = ("
+          <div id=\"cheater_#{ cheater._id }\">
+            <div class=\"cheater_mobile\">#{ cheater.mobile }</div>
+            <p class=\"cheater_desc\">#{ cheater.desc }</p>
+            <input type=\"button\" class=\"vote span1 btn\" id=\"vote_up\" value=\"Up\">#{ cheater.vote_up }
+            <input type=\"button\" class=\"vote span1 btn\" id=\"vote_down\" value=\"Down\">#{ cheater.vote_down }
+          </div>" for cheater in data).join '<hr/>'
+
         $('#cheater_list').html(rslt)
     )
 
