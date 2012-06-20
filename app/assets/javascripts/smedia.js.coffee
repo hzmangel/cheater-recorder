@@ -4,6 +4,7 @@
 
 $ ->
   update_cheater_list()
+  $('#add_cheater_form').submit(submit_add_cheater_form)
 
 update_cheater_list = () ->
   cheaters_url = '/cheaters.json'
@@ -22,4 +23,27 @@ update_cheater_list = () ->
         $('#cheater_list').html(rslt)
     )
 
+
+submit_add_cheater_form = (event) ->
+  event.preventDefault()
+
+  create_cheater_url = '/cheaters.json'
+  post_data = {
+    'cheater_mobile': $('#cheater_mobile').val(),
+    'cheater_desc': $('#cheater_desc').val(),
+    'provider_email': $('#provider_email').val()
+  }
+  console.log(post_data)
+  $.post(create_cheater_url, post_data,
+    (data) ->
+      console.log(data)
+  ).success((data) ->
+    $('#add_cheater_rslt').addClass('alert alert-success span8')
+    $('#add_cheater_rslt').html("Cheater #{ data } added")
+  ).error((data) ->
+    $('#add_cheater_rslt').addClass('alert alert-error span8')
+    $('#add_cheater_rslt').html("Cheater #{ data.responseText }")
+  )
+  # Change the class to notify_success
+  $('#add_cheater_rslt').show()
 

@@ -40,10 +40,20 @@ class CheatersController < ApplicationController
   # POST /cheaters
   # POST /cheaters.json
   def create
-    @cheater = Cheater.new(params[:cheater])
+    @cheater = Cheater.new()
+    @provider = Provider.new()
+
+    # TODO First check whether the mobile is exist,
+    # if yes, update the vote_up other than create new one
+    # The same with provider, if existed, add providered count.
+
+    @cheater.mobile = params[:cheater_mobile]
+    @cheater.mobile = params[:cheater_desc] || ""
+
+    @provider.email = params[:provider_email]
 
     respond_to do |format|
-      if @cheater.save
+      if @cheater.save and @provider.save
         format.html { redirect_to @cheater, notice: 'Cheater was successfully created.' }
         format.json { render json: @cheater, status: :created, location: @cheater }
       else
